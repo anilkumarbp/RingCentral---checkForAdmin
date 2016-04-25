@@ -117,7 +117,8 @@
               <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
           </div>
           <input type="submit" name="submit" value="Authorize" class="btn btn-info pull-left" onclick="rcm.authorizeFields();">
-          <input type="submit" name="submit"  value="User Information" class="btn btn-info pull-right" onclick="rcm.rch.get_info();">
+          <input type="submit" name="submit"  value="check if the User is Admin" class="btn btn-info pull-right" onclick="rcm.rch.isAdmin();">
+
         <!--   </form> -->
         </div>
         <!-- For the results div -->
@@ -127,158 +128,7 @@
       </div>
     </div>
     </div>
-      <!-- Send SMS -->
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-           Send SMS
-        </a><i class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse">
-      <div class="panel-body">
-       <div class="col-lg-6">
-         <!--  <form role="form" action="" method="post"> -->
-          <div class="well well-sm"><strong><i class="glyphicon glyphicon-ok form-control-feedback"></i> Required Field</strong></div>
-          <div class="form-group">
-            <label for="InputName">From Number</label>
-            <div class="input-group">
-              <input type="text" class="form-control" name="InputName" id="fromnumber" >
-              <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
-          </div>
-          <div class="form-group">
-            <label for="InputEmail">To Number</label>
-            <div class="input-group">
-              <input type="text" class="form-control" id="InputEmail" name="tonumber" >
-              <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
-          </div>
-          <div class="form-group">
-            <label for="InputMessage">Message</label>
-            <div class="input-group">
-                <textarea name="InputMessage" id="textmessage" class="form-control" rows="5" required=""></textarea>
-                <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
-          </div>
-          <input type="submit" name="submit" id="submit" value="sendSMS" class="btn btn-info pull-left" onclick="rcm.rch.send_sms($('#fromnumber').val(),$('#tonumber').val(),$('#textmessage').val());">
-        </div>
-        <!-- For the results div -->
-        <div class="col-lg-6">
-          <textarea class="result-section" id="call-logs" name="content" ></textarea>
-        </div>  
-      </div>
 
-    </div>
-  </div>
-    <!-- RingOut -->
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-           RingOut
-        </a><i class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
-      </h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse">
-      <div class="panel-body">
-        
-        <div class="col-lg-6">
-        
-          <div class="well well-sm"><strong><i class="glyphicon glyphicon-ok form-control-feedback"></i> Required Field</strong></div>
-          <div class="form-group">
-            <label for="InputName">From Number</label>
-            <div class="input-group">
-              <input type="text" class="form-control" name="InputName" id="InputName" >
-              <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
-          </div>
-       
-          <input type="submit" name="submit" id="submit" value="ringout" class="btn btn-info pull-left" onclick="rcm.rch.ring_out($('#from').val(),$('#tonumber').val());"/>
-         
-        </div>
-        <!-- For the results div -->
-        <div class="col-lg-6">
-          <textarea class="result-section" id="ringout" name="content" ></textarea>
-        </div> 
-     </div>
-      </div>
-    </div>
-  
-    <!-- Call logs -->
-  <div class="panel panel-default">
-  <div class="panel-heading">
-      <h4 class="panel-title">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-           Call Logs
-        </a><i class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
-      </h4>
-    </div>
-    <div id="collapseFour" class="panel-collapse collapse">
-      <div class="panel-body">
-        
-        <div class="col-lg-6">
-         
-          <input type="submit" name="submit" id="submit" value="call-logs" class="btn btn-info pull-center">
-    
-        </div>
-       
-        <!-- For the results div -->
-        <div class="col-lg-6">
-          <textarea class="result-section" id="call-logs" name="content" ></textarea>
-        </div> 
-
-      </div>
-    </div>
-  </div>
-  <!-- Presence Checks -->
-    <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
-           Presence Checks
-        </a><i class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
-      </h4>
-    </div>
-    <div id="collapseFive" class="panel-collapse collapse">
-      <div class="panel-body">
-        
-        <div class="col-lg-6">
-         
-          <input type="submit" name="submit" id="submit" value="Presence Check" class="btn btn-info pull-center" onclick="rcm.rch.presence();">
-    
-        </div>
-       
-        <!-- For the results div -->
-        <div class="col-lg-6">
-          <textarea class="result-section" id="presence" name="content" ></textarea>
-        </div> 
-
-      </div>
-    </div>
-  </div>
-    <!-- Message Store -->
-    <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
-           Message-Store
-        </a><i class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
-      </h4>
-    </div>
-    <div id="collapseSix" class="panel-collapse collapse">
-      <div class="panel-body">
-        
-        <div class="col-lg-6">
-         
-          <input type="submit" name="submit" id="submit" value="Message Store" class="btn btn-info pull-center" onclick="rcm.rch.messagestore();">
-    
-        </div>
-       
-        <!-- For the results div -->
-        <div class="col-lg-6">
-          <textarea class="result-section" id="message-store" name="content" ></textarea>
-        </div> 
-
-      </div>
-    </div    
 
 </div>
 
@@ -327,18 +177,19 @@
         }
         t.authorize = function(username,extension,password) {
             p = t.rcsdk.getPlatform();
+            
             p.authorize({
                 username:  username, // phone number in full format
                 extension: extension, // leave blank if direct number is used
                 password:  password
             }).then(function(response) {
-                // your code here
-                alert('success: ');
+                // t.isAdmin();
             }).catch(function(e) {
                 alert('ERR ' + e.message  || 'Server cannot authorize user');
             });
             t.rch = new rcHelper(p);
         }
+
     }
 
     function rcHelper(platform) {
@@ -359,6 +210,34 @@
                 alert('Error: ' + e.message);
             });
         }
+
+
+        t.isAdmin = function() {
+          this.platform.get('/account/~/extension/~').then(function(response){
+            alert('Success: ' + JSON.stringify(response.data, null, 2));
+            var admin = "The User is an Admin";
+            var nonAdmin = "The User is NOT an Admin";
+                // print respsone 
+                var txt=JSON.stringify(response.data, null, 2);
+                document.getElementById("result").innerHTML=txt;
+
+               // alert('Success: ' + JSON.stringify(response.data, null, 2));
+
+            if(response.data.permissions.admin.enabled == true){
+              // var txt = "The User is an Admin";
+              document.getElementById("result").innerHTML=admin;
+            }
+            else{
+              document.getElementById("result").innerHTML=nonAdmin;
+            }
+            // var txt=JSON.stringify(response.data, null, 2);
+            //     document.getElementById("result").innerHTML=txt;
+          }).catch(function(e) {
+                alert('Error: ' + e.message);
+            });
+        }
+
+
 
         t.ring_out = function(from,to) {
             this.platform.post('/account/~/extension/~/ringout', {
